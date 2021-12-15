@@ -1,6 +1,6 @@
-
+import DefaultDrawer from "./components/DefaultDrawer";
 function App() {
-  return <p>work in progress</p>;
+  return <DefaultDrawer />;
 }
 
 export default App;
