@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Drawer, Box, Button } from "@mui/material";
 import { toggleDefaultDrawer } from "./logic";
+import DrawerContent from "./DrawerContent";
 
 const DefaultDrawer = () => {
   const [open, setOpen] = useState(false);
@@ -15,9 +16,7 @@ const DefaultDrawer = () => {
         open={open}
         onClick={() => toggleDefaultDrawer(false, setOpen)}
       >
-        {[1, 2, "Bacheca", "Membri", "Impostazioni", 6, 7].map((value) => {
-          return <p>{value}</p>;
-        })}
+        <DrawerContent />
       </Drawer>
     </Box>
   );
