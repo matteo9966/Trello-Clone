@@ -7,7 +7,6 @@ import { activeDrawer } from "./logic";
 import { State } from "../../state/reducers/index";
 
 const DefaultDrawer = () => {
-
   const actions = bindActionCreators({ activeDrawer }, useDispatch());
   const drawerIsOpen = useSelector((state: State) => state.drawer);
 
