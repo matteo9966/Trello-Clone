@@ -1,15 +1,24 @@
 import { Typography, List, ListItem, Button } from "@mui/material";
 import { Fragment } from "react";
-
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import SettingsIcon from "@mui/icons-material/Settings";
 
+import { useDispatch, useSelector } from "react-redux";
+import { bindActionCreators } from "redux";
+import { deactiveDrawer } from "./logic";
+import { State } from "../../state/reducers/index";
+
 const DrawerContent = () => {
+  const actions = bindActionCreators({ deactiveDrawer }, useDispatch());
+
   const workSpaceHeader = (
     <Fragment>
       <Typography paragraph noWrap>
-        spazio di lavoro di default <Button size="small">{"<"}</Button>
+        spazio di lavoro di default{" "}
+        <Button size="small" onClick={() => actions.deactiveDrawer()}>
+          {"<"}
+        </Button>
         <Typography variant="subtitle2">gratis</Typography>
       </Typography>
     </Fragment>
@@ -57,7 +66,7 @@ const DrawerContent = () => {
     </Fragment>
   );
 
-  const workspace = "...";
+  const workspace = "Viste dello spazio di lavoro";
 
   return (
     <List>

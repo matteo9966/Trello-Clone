@@ -1,21 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import { Drawer, Box, Button } from "@mui/material";
-import { toggleDefaultDrawer } from "./logic";
 import DrawerContent from "./DrawerContent";
+import { useDispatch, useSelector } from "react-redux";
+import { bindActionCreators } from "redux";
+import { activeDrawer } from "./logic";
+import { State } from "../../state/reducers/index";
 
 const DefaultDrawer = () => {
-  const [open, setOpen] = useState(false);
+
+  const actions = bindActionCreators({ activeDrawer }, useDispatch());
+  const drawerIsOpen = useSelector((state: State) => state.drawer);
 
   return (
     <Box>
-      <Button size="small" onClick={() => toggleDefaultDrawer(true, setOpen)}>
+      <Button size="small" onClick={() => actions.activeDrawer()}>
         {">"}
       </Button>
-      <Drawer
-        anchor="left"
-        open={open}
-        onClick={() => toggleDefaultDrawer(false, setOpen)}
-      >
+      <Drawer anchor="left" open={drawerIsOpen}>
         <DrawerContent />
       </Drawer>
     </Box>
