@@ -23,7 +23,7 @@ export const SearchBar = () => {
   const InputBaseStyle: SxProps<Theme> = {
     flex: 1,
     color: theme.palette.common.white,
-    width: '100%',
+    width: "100%",
     // '&:focus':{backgroundColor: alpha(theme.palette.common.white, 0.95)} #FIXME: parti da qui per aggiustare il colore quando focalizzi!
   };
 
@@ -31,10 +31,7 @@ export const SearchBar = () => {
     <Box sx={SearchBarStyle}>
       <SearchIcon sx={SearchIconStyle}></SearchIcon>
 
-      <InputBase
-        sx={InputBaseStyle}
-        placeholder="Carca..."
-      />
+      <InputBase sx={InputBaseStyle} placeholder="Carca..." />
     </Box>
   );
 };
