@@ -1,33 +1,51 @@
-import { Typography, List, ListItem, Button } from "@mui/material";
+import { Typography, List, ListItem, Button, Box } from "@mui/material";
 import { Fragment } from "react";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import SettingsIcon from "@mui/icons-material/Settings";
-
+import Avatar from "@mui/material/Avatar";
 import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import { deactiveDrawer } from "./logic";
-import { State } from "../../state/reducers/index";
+import { height } from "@mui/system";
 
 const DrawerContent = () => {
   const actions = bindActionCreators({ deactiveDrawer }, useDispatch());
 
   const workSpaceHeader = (
     <Fragment>
-      <Typography paragraph noWrap>
-        spazio di lavoro di default{" "}
-        <Button size="small" onClick={() => actions.deactiveDrawer()}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+        }}
+      >
+        <Avatar variant="square">S</Avatar>
+        <Box component="div" sx={{ marginLeft: "8px", marginRight: "4px" }}>
+          <Typography paragraph noWrap sx={{ marginBottom: "0px" }}>
+            Spazio di lavoro di default{" "}
+          </Typography>
+          <Typography variant="subtitle2">gratis</Typography>
+        </Box>
+
+        <Button
+          size="small"
+          onClick={() => actions.deactiveDrawer()}
+          sx={{
+            width: "3%",
+            height: "3%",
+          }}
+        >
           {"<"}
         </Button>
-        <Typography variant="subtitle2">gratis</Typography>
-      </Typography>
+      </Box>
     </Fragment>
   );
 
   const separator = (
     <hr
       style={{
-        backgroundColor: "black",
         width: "100%",
       }}
     />
@@ -35,12 +53,18 @@ const DrawerContent = () => {
 
   const bulletinBoard = (
     <Fragment>
-      <Typography paragraph noWrap>
-        <FormatListBulletedIcon />
-      </Typography>
-      <Typography paragraph noWrap>
-        Bacheca
-      </Typography>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+        }}
+      >
+        <FormatListBulletedIcon sx={{ width: "5%", height: "5%" }} />
+        <Typography paragraph noWrap sx={{ marginBottom: "0px" }}>
+          Bacheca
+        </Typography>
+      </Box>
     </Fragment>
   );
 
@@ -67,7 +91,8 @@ const DrawerContent = () => {
   );
 
   const workspace = "Viste dello spazio di lavoro";
-
+  const workspaceTabe = "Tabelle dello spazio di lavoro";
+  const youreBulletinBoard = "Le tue bacheche";
   return (
     <List>
       {[
@@ -77,6 +102,8 @@ const DrawerContent = () => {
         members,
         settings,
         workspace,
+        workspaceTabe,
+        youreBulletinBoard,
       ].map((itemList) => {
         return <ListItem>{itemList}</ListItem>;
       })}
