@@ -4,11 +4,11 @@ const drawerSlice = createSlice({
   name: "drawer",
   initialState: false,
   reducers: {
-    closeDrawer: (state, action) => {
-      state = false;
+    closeDrawer: () => {
+      return false;
     },
-    openDrawer: (state, action) => {
-      state = true;
+    openDrawer: () => {
+      return true;
     },
   },
 });

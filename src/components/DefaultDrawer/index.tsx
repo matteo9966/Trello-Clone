@@ -1,28 +1,49 @@
-// import React from "react";
-// import { Drawer, Box, Button } from "@mui/material";
-// import DrawerContent from "./DrawerContent";
-// import { useDispatch, useSelector } from "react-redux";
-// import { bindActionCreators } from "redux";
-// import { activeDrawer } from "./logic";
-// import { State } from "../../state/reducers/index";
+import { Box, Button } from "@mui/material";
+import DrawerContent from "./DrawerContent";
+import { useDispatch, useSelector } from "react-redux";
+import { storeDispatch, RootState } from "../../redux/store";
+import { closeDrawer, openDrawer } from "../../redux/drawerSlice";
 
-// const DefaultDrawer = () => {
+const DefaultDrawer = () => {
+  const drawerState = useSelector((state: RootState) => state.drawer);
+  const dispatch = useDispatch();
 
-//   const actions = bindActionCreators({ activeDrawer }, useDispatch());
-//   const drawerIsOpen = useSelector((state: State) => state.drawer);
+  return (
+    <Box
+      component="div"
+      sx={{
+        display: "flex",
+        minWidth: drawerState ? "300px" : "15px",
+        height: "100%",
+        border: "10px solid black",
+        transition: "min-width 0.5s ease 0s",
+      }}
+    >
+      {" "}
+      <Box
+        component="div"
+        sx={{
+          flexGrow: 1,
+          height: "100%",
+          maxWidth: "100%",
+          overflow: "hidden",
+          position: "relative",
+        }}
+      >
+        {<DrawerContent />}
+      </Box>
+      {drawerState === false ? (
+        <Button
+          onClick={() => dispatch(openDrawer())}
+          style={{ minWidth: "7px", height: "2%" }}
+        >
+          {">"}
+        </Button>
+      ) : (
+        ""
+      )}
+    </Box>
+  );
+};
 
-//   return (
-//     <Box>
-//       <Button size="small" onClick={() => actions.activeDrawer()}>
-//         {">"}
-//       </Button>
-//       <Drawer anchor="left" open={drawerIsOpen}>
-//         <DrawerContent />
-//       </Drawer>
-//     </Box>
-//   );
-// };
-
-// export default DefaultDrawer;
-
-export {}
+export default DefaultDrawer;

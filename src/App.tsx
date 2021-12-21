@@ -1,5 +1,6 @@
 import React from "react";
 import { Navbar } from "./components/Navbar";
+import DefaultDrawer from "./components/DefaultDrawer";
 
 function App() {
   return (
@@ -18,15 +19,8 @@ function App() {
       </div>
       <div style={{ flexGrow: 1, border: "10px solid black" }}>
         <div style={{ display: "flex", height: "100%" }}>
-          <div
-            style={{
-              minWidth: "300px",
-              border: "10px solid black",
-              height: "100%",
-            }}
-          >
-            {/* <DefaultDrawer /> */}
-          </div>
+          {<DefaultDrawer />}
+
           <div
             style={{ flexGrow: 1, border: "10px solid black", height: "100%" }}
           ></div>
