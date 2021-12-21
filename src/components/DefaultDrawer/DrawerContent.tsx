@@ -1,36 +1,27 @@
-import { Typography, List, ListItem, Button } from "@mui/material";
+import { Typography, List, ListItem, Button, Box, Avatar } from "@mui/material";
 import { Fragment } from "react";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import SettingsIcon from "@mui/icons-material/Settings";
-
-import { useDispatch, useSelector } from "react-redux";
-import { bindActionCreators } from "redux";
-import { deactiveDrawer } from "./logic";
-import { State } from "../../state/reducers/index";
+import { useDispatch } from "react-redux";
+import { closeDrawer } from "../../redux/drawerSlice";
 
 const DrawerContent = () => {
-  const actions = bindActionCreators({ deactiveDrawer }, useDispatch());
+  const dispatch = useDispatch();
 
   const workSpaceHeader = (
     <Fragment>
-      <Typography paragraph noWrap>
+      <Avatar variant="square" sx={{ margin: 0 }}>
+        S
+      </Avatar>{" "}
+      <Typography paragraph noWrap sx={{ margin: 0 }}>
         spazio di lavoro di default{" "}
-        <Button size="small" onClick={() => actions.deactiveDrawer()}>
+        <Button size="small" onClick={() => dispatch(closeDrawer())}>
           {"<"}
         </Button>
         <Typography variant="subtitle2">gratis</Typography>
       </Typography>
     </Fragment>
-  );
-
-  const separator = (
-    <hr
-      style={{
-        backgroundColor: "black",
-        width: "100%",
-      }}
-    />
   );
 
   const bulletinBoard = (
@@ -67,20 +58,37 @@ const DrawerContent = () => {
   );
 
   const workspace = "Viste dello spazio di lavoro";
-
+  const youreBulletinBoard = " le tue bacheche";
   return (
-    <List>
-      {[
-        workSpaceHeader,
-        separator,
-        bulletinBoard,
-        members,
-        settings,
-        workspace,
-      ].map((itemList) => {
-        return <ListItem>{itemList}</ListItem>;
-      })}
-    </List>
+    <Box
+      component="div"
+      sx={{
+        position: "absolute",
+        display: "flex",
+        flexDirection: "column",
+        top: 0,
+        left: 0,
+      }}
+    >
+      <List>
+        {[
+          workSpaceHeader,
+          <hr
+            style={{
+              backgroundColor: "black",
+              width: "100%",
+            }}
+          />,
+          bulletinBoard,
+          members,
+          settings,
+          workspace,
+          youreBulletinBoard,
+        ].map((itemList) => {
+          return <ListItem>{itemList}</ListItem>;
+        })}
+      </List>
+    </Box>
   );
 };
 
