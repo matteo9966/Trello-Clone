@@ -5,6 +5,9 @@ const column1 = new Column('Colonna 1');
 const column2 = new Column('Colonna 2');
 const column3 = new Column('Colonna 3');
 const column4 = new Column('Colonna 4');
+const column5 = new Column('Colonna 5');
+const column6 = new Column('Colonna 6');
+const column7 = new Column('Colonna 7');
 
 
 const item1= new ColumnItem('elemento1','descrizione elemento1')
@@ -26,3 +29,6 @@ board.push(column1)
 board.push(column2)
 board.push(column3);
 board.push(column4);
+board.push(column5)
+board.push(column6)
+board.push(column7)

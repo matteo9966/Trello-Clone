@@ -22,8 +22,7 @@ export const MainPanel = () => {
                   height: "100%",
                   border: "2px solid magenta",
                   display: "flex",
-                  width:'100%',
-                  maxWidth:'100%',
+                 
                   overflowX:'scroll',
                   padding:'0.8rem'
                   

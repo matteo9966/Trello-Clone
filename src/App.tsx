@@ -24,7 +24,7 @@ function App() {
            {/* <DefaultDrawer /> */}
 
            </div>
-           <div style={{flexGrow:1,border:'10px solid black',height:'100%'}}>
+           <div style={{flexGrow:1,border:'10px solid black',height:'100%',overflow:'hidden'}}>
              <MainPanel></MainPanel>
            </div>
          </div>
