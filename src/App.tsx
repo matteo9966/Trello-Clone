@@ -1,5 +1,5 @@
 import React from "react";
-
+import { MainPanel } from "./components/MainPanel";
 // import DefaultDrawer from "./components/DefaultDrawer";
 import { Navbar } from "./components/Navbar";
 
@@ -24,7 +24,9 @@ function App() {
            {/* <DefaultDrawer /> */}
 
            </div>
-           <div style={{flexGrow:1,border:'10px solid black',height:'100%'}}></div>
+           <div style={{flexGrow:1,border:'10px solid black',height:'100%'}}>
+             <MainPanel></MainPanel>
+           </div>
          </div>
       </div>
     </div>

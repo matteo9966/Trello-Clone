@@ -5,8 +5,10 @@ import { GlobalThemeProvider } from "./GlobalTheme/ThemeProvider";
 import { Provider } from "react-redux";
 // import store from "./state/store";
 import store from './redux/store'
+import { CssBaseline } from "@mui/material";
 ReactDOM.render(
   <React.StrictMode>
+    <CssBaseline></CssBaseline>
       <Provider store={store}>
     <GlobalThemeProvider>
       <App />
