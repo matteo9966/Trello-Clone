@@ -5,7 +5,7 @@ import { RootState } from "../../redux/store";
 import { newShell, removeShell } from "../../redux/listShellSlice";
 import { List, ListItem } from "@mui/material";
 import { v4 as uuidv4 } from "uuid";
-
+import { MainPanel } from "../MainPanel";
 const TasksList = () => {
   // prende lo stato di list shell e le renderizza tutte
 
@@ -22,11 +22,14 @@ const TasksList = () => {
         maxWidth: "100%",
         border: "10px solid black;",
         gap: "0.5rem",
-        padding: "0.4rem",
-        overflowX: "scroll",
+        
+        overflowX: "hidden",
       }}
     >
-      {shellState.map((shell) => {
+
+      <MainPanel></MainPanel>
+
+      {/* {shellState.map((shell) => {
         return (
           <ListShell shellName={shell.shellName} shellId={shell.shellId} />
         );
@@ -38,7 +41,7 @@ const TasksList = () => {
         }
       >
         aggiungi una nuova lista
-      </button>
+      </button> */}
     </Box>
   );
 };
