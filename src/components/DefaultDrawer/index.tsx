@@ -1,8 +1,8 @@
 import { Box, Button } from "@mui/material";
 import DrawerContent from "./DrawerContent";
 import { useDispatch, useSelector } from "react-redux";
-import { storeDispatch, RootState } from "../../redux/store";
-import { closeDrawer, openDrawer } from "../../redux/drawerSlice";
+import {RootState } from "../../redux/store";
+import {openDrawer } from "../../redux/drawerSlice";
 
 const DefaultDrawer = () => {
   const drawerState = useSelector((state: RootState) => state.drawer);
