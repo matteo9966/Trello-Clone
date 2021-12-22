@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar } from "./components/Navbar";
 import DefaultDrawer from "./components/DefaultDrawer";
-
+import TasksList from "./components/TasksList";
 function App() {
   return (
     <div
@@ -20,10 +20,7 @@ function App() {
       <div style={{ flexGrow: 1, border: "10px solid black" }}>
         <div style={{ display: "flex", height: "100%" }}>
           {<DefaultDrawer />}
-
-          <div
-            style={{ flexGrow: 1, border: "10px solid black", height: "100%" }}
-          ></div>
+          {<TasksList />}
         </div>
       </div>
     </div>
