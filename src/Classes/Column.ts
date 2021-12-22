@@ -9,9 +9,6 @@ export class Column extends Card{
        this.columnItems=[];
        this.items=[];
    }
- 
 
-   public addItemToColumn(item:ColumnItem){
-       this.items.push(item)
-   }
+
 }
