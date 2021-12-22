@@ -1,9 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import drawerReducer from "./drawerSlice";
+import listShellReducer from './listShellSlice'
+import taskReducer from './taskSlice'
 
 const store = configureStore({
   reducer: {
     drawer: drawerReducer,
+    shell:listShellReducer,
+    task:taskReducer
   },
 });
 
