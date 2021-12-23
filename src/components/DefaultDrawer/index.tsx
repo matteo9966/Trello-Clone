@@ -15,7 +15,7 @@ const DefaultDrawer = () => {
         display: "flex",
         minWidth: drawerState ? "300px" : "15px",
         height: "100%",
-        border: "10px solid black",
+        borderRight: '2px solid black',
         transition: "min-width 0.5s ease 0s",
       }}
     >

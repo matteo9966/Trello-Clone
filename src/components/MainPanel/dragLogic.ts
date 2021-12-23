@@ -13,6 +13,7 @@ export const useMainPanel = () => {
 
     
 
+    
     if (result.type === "COLONNA") {
       dispatch(
         reorderColumns({

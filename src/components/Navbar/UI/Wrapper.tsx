@@ -12,7 +12,7 @@ export const Wrapper: React.FC<{
     justifyContent: "center",
     marginX: "3px",
     paddingX: theme.spacing(1),
-    border: "2px solid green",
+    
     borderRadius: theme.shape.borderRadius,
     "&:hover": { backgroundColor: alpha(theme.palette.common.white, 0.16) },
     textAlign: "center",

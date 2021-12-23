@@ -17,7 +17,7 @@ function App() {
       <div style={{ height: "45px" }}>
         <Navbar />
       </div>
-      <div style={{ flexGrow: 1, border: "10px solid black" }}>
+      <div style={{ flexGrow: 1, }}>
         <div style={{ display: "flex", height: "100%" }}>
           {<DefaultDrawer />}
           {<TasksList />}
