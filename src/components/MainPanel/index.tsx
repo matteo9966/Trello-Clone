@@ -31,7 +31,7 @@ export const MainPanel = () => {
             component="div"
             sx={{
               height: "100%",
-              border: "2px solid magenta",
+             
               display: "flex",
 
               overflowX: "scroll",

@@ -9,7 +9,7 @@ export const MainContainer: React.FC<{ sx?: SxProps<Theme> }> = ({
   const MainContainerStyle: SxProps<Theme> = {
     display: "flex",
     flexDirection: "row",
-    border: "1px solid red",
+   
     ...sx,
   };
   return <Box sx={MainContainerStyle}>{children}</Box>;

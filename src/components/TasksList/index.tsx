@@ -20,10 +20,10 @@ const TasksList = () => {
         flexGrow: 1,
         height: "100%",
         maxWidth: "100%",
-        border: "10px solid black;",
+        
         gap: "0.5rem",
         
-        overflowX: "hidden",
+        overflow: "hidden",
       }}
     >
 

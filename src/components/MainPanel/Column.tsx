@@ -37,7 +37,7 @@ export const Column: React.FC<{ ColumnData: Col; index: number }> = ({
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                border: "5px solid yellow",
+                
                 flexGrow: 1,
                 width: "100%",
                 minHeight: "200px",

@@ -30,16 +30,18 @@ const cardsSlice = createSlice({
            const destinationIndex=action.payload.destinationIndex;
            const sourceCID=action.payload.sourceColumnID;
            const destCID=action.payload.destinationestinationColumnID;
+           console.log('sourceindex:',sourceIndex,'\n','destinationindex:',destinationIndex,'\n',sourceCID,'\n',destCID)
           
            if(sourceCID===destCID && sourceIndex===destinationIndex){
                return 
            }
-           if(sourceCID===destCID){
-               const newboard = reorderItemList(state.board,sourceIndex,destinationIndex,sourceCID,destCID)
-               return {...state,board:newboard}
 
-           }
-              return 
+           
+            const newboard = reorderItemList(state.board,sourceIndex,destinationIndex,sourceCID,destCID)
+             return {...state,board:newboard}
+
+           
+              
        },
        addItemToColumn:()=>{},
        

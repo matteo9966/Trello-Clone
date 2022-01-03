@@ -11,10 +11,9 @@ export const useMainPanel = () => {
       return;
     }
 
-    if (result.source.index === result.destination.index) {
-      return;
-    }
+    
 
+    
     if (result.type === "COLONNA") {
       dispatch(
         reorderColumns({
