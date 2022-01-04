@@ -12,7 +12,7 @@ export const GlobalThemeProvider: React.FC = ({ children }) => {
             padding:0,
          
         }}
-     }}
+     },MuiCard:{styleOverrides:{root:{minHeight:'none',maxHeight:'none',height:'none'}}}}
   });
 
  

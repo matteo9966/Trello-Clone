@@ -1,7 +1,7 @@
 import React from "react";
 import { useAppSelector } from "../../hooks/redux/hooks";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
-import { Box } from "@mui/material";
+import { Box, Card, CardContent, Typography } from "@mui/material";
 import { Column } from "./Column";
 import { useMainPanel } from "./dragLogic";
 export const MainPanel = () => {
@@ -16,9 +16,7 @@ export const MainPanel = () => {
          in questo modo un elemento draggable potra essere droppato solo nel contenitore a cui appartiene!
          */
 
-    <DragDropContext
-      onDragEnd={onDragEnd}
-    >
+    <DragDropContext onDragEnd={onDragEnd}>
       <Droppable
         droppableId="droppable-main"
         direction="horizontal"
@@ -28,16 +26,19 @@ export const MainPanel = () => {
           <Box
             ref={provided.innerRef}
             {...provided.droppableProps}
-            component="div"
+            component="span"
             sx={{
-              height: "100%",
+              minHeight: "auto",
              
               display: "flex",
-
-              overflowX: "scroll",
+              
+            
               padding: "0.8rem",
+              
             }}
           >
+           
+
             {boardData.board.map((column, index) => {
               return (
                 <Column

@@ -19,14 +19,22 @@ export const Column: React.FC<{ ColumnData: Col; index: number }> = ({
           {...provided.draggableProps}
           elevation={3}
           sx={{
+           
             minWidth: "280px",
             maxWidth: "0.2vw",
             border: "1px solid red",
             marginLeft: "0.5rem",
+            display:'inline',
+            float:'left',
+            minHeight:'100%',
+            
+            
+         
+           
           }}
         >
           <CardContent
-            sx={{ border: "1px solid black", padding: 0, height: "100%" }}
+            sx={{ border: "1px solid black", padding: 0,minHeight:'100%',height: 'none',maxHeight:'none' }}
           >
             <CardHeader
               {...provided.dragHandleProps}
@@ -41,10 +49,14 @@ export const Column: React.FC<{ ColumnData: Col; index: number }> = ({
                 flexGrow: 1,
                 width: "100%",
                 minHeight: "200px",
+                height: 'none',
+                maxHeight:'none' 
               }}
             >
               <ColumnDroppableArea columnData={ColumnData} />
+             
             </Box>
+            <Box sx={{border:'1px solid blue'}}>Ciao</Box>
           </CardContent>
         </Card>
       )}
@@ -52,26 +64,4 @@ export const Column: React.FC<{ ColumnData: Col; index: number }> = ({
   );
 };
 
-{
-  /* <Droppable droppableId={ColumnData.ID.toString()} type="Items" >
-{(provided)=>{
-    return(<div {...provided.droppableProps} ref={provided.innerRef} style={{width:'100%',height:'100%',minHeight:'200px', border:'3px solid orange'}} >
-    
-    {ColumnData.items.map((item,index)=>{return(<Draggable key={item.ID.toString()} index={index} draggableId={item.ID.toString()}>
-    
-    {(provided)=>{return ( <ColumnItemDraggable provided={provided} item={item} /> )
-}}
-</Draggable>)})}
 
-</div>)
-}}
-
-</Droppable>  */
-}
-{
-  /* {ColumnData.items.map((item,index)=>{return(<Draggable key={item.ID} index={index} draggableId={item.ID}>
-              
-              {(provided)=>{return ( <ColumnItemDraggable index={index} provided={provided} item={item} /> )
-              }}
-           </Draggable>)})} */
-}
