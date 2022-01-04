@@ -39,7 +39,9 @@ const TaskForm = () => {
 
   return (
     <ClickAwayListener onClickAway={() => console.log("premutovia")}>
-      <Box
+      <Paper
+        elevation={1}
+        component="div"
         sx={{
           width: "50vw",
           height: " 50vh",
@@ -49,12 +51,10 @@ const TaskForm = () => {
           right: "40%",
         }}
       >
-        <Paper elevation={1}>
-          <Typography variant="h5">titolo card</Typography>
-          <Typography variant="h5">Descrizione Della card</Typography>
-          {rightList}
-        </Paper>
-      </Box>
+        <Typography variant="h5">titolo card</Typography>
+        <Typography variant="h5">Descrizione Della card</Typography>
+        {rightList}
+      </Paper>
     </ClickAwayListener>
   );
 };
