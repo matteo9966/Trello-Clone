@@ -7,6 +7,7 @@ import {
   Divider,
 } from "@mui/material";
 import { taskType } from "../../redux/taskSlice";
+import TaskForm from "./TaskForm";
 
 const Task: FC<taskType> = ({ title, description, parentShell }) => {
   return (

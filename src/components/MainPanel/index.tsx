@@ -16,9 +16,7 @@ export const MainPanel = () => {
          in questo modo un elemento draggable potra essere droppato solo nel contenitore a cui appartiene!
          */
 
-    <DragDropContext
-      onDragEnd={onDragEnd}
-    >
+    <DragDropContext onDragEnd={onDragEnd}>
       <Droppable
         droppableId="droppable-main"
         direction="horizontal"
@@ -31,7 +29,7 @@ export const MainPanel = () => {
             component="div"
             sx={{
               height: "100%",
-             
+
               display: "flex",
 
               overflowX: "scroll",
