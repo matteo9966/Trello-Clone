@@ -17,5 +17,3 @@ export const ColumnDroppableArea:React.FC<{columnData:Column,children?:React.Rea
         </Droppable>
     )
 }
-
-

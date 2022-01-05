@@ -6,14 +6,14 @@ import {Column} from '../Classes/Column'
 import { createColumnItem } from "../HelperFunctions/createItem";
 import {createColumn} from '../HelperFunctions/createColumn';
 interface ColumnsReorder {
-    sourceIndex:number;
-    destinationIndex:number;
+  sourceIndex: number;
+  destinationIndex: number;
 }
 interface ItemsReorder {
-    sourceIndex:number;
-    destinationIndex:number;
-    sourceColumnID:string;
-    destinationestinationColumnID:string;
+  sourceIndex: number;
+  destinationIndex: number;
+  sourceColumnID: string;
+  destinationestinationColumnID: string;
 }
 
 
@@ -41,9 +41,9 @@ const cardsSlice = createSlice({
                return 
            }
 
-           
-            const newboard = reorderItemList(state.board,sourceIndex,destinationIndex,sourceCID,destCID)
-             return {...state,board:newboard}
+      if (sourceCID === destCID && sourceIndex === destinationIndex) {
+        return;
+      }
 
            
               
@@ -67,6 +67,5 @@ const cardsSlice = createSlice({
     
 })
 
-export const {reorderColumns,reorderItems,addItemToColumn,addNewColumn} =cardsSlice.actions
-export default cardsSlice.reducer
-
+export const { reorderColumns, reorderItems } = cardsSlice.actions;
+export default cardsSlice.reducer;
