@@ -1,0 +1,42 @@
+.topHead{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.close{
+    cursor: pointer;
+    background: none;
+    outline: none;
+    border: none;
+}
+
+.disabled{
+    cursor: not-allowed;
+    width: 100%;
+    color: grey;
+    background: none;
+    outline: none;
+    border: none;
+    text-transform: uppercase;
+}
+
+.linkTitle{
+    width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.upperCard{
+    height:50px;
+    display:flex;
+    align-items:center; 
+    justify-content:space-between;
+    border-bottom:1px solid rgb(201, 201, 201);
+    margin-bottom: 18px;
+}
+
+.open:hover{
+    background-color: rgba(255, 255, 255, 0.16)!important;
+}
