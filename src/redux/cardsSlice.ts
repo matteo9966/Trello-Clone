@@ -67,5 +67,5 @@ const cardsSlice = createSlice({
     
 })
 
-export const { reorderColumns, reorderItems } = cardsSlice.actions;
+export const { reorderColumns, reorderItems,addItemToColumn,addNewColumn } = cardsSlice.actions;
 export default cardsSlice.reducer;
