@@ -7,24 +7,29 @@ import { ColumnItem } from "../../../Classes/ColumnItem";
 export const ColumnItemDraggable: React.FC<{
   provided?: DraggableProvided;
   item: ColumnItem;
-  index: number;
+  index:number;
+ 
 }> = (props) => {
   return (
-    <Draggable index={props.index} draggableId={props.item.ID}>
-      {(provided) => (
-        <Card
-          {...provided.draggableProps}
-          {...provided.dragHandleProps}
-          ref={provided.innerRef}
-        >
-          <CardContent>
-            <Box>
-              <Typography variant="h6">{props.item.name}</Typography>
-            </Box>
-          </CardContent>
-        </Card>
-      )}
-    </Draggable>
+   <Draggable index={props.index} draggableId={props.item.ID}>
+         {(provided)=>(
+
+    
+    <Card
+      {...provided.draggableProps}
+      {...provided.dragHandleProps}
+      ref={provided.innerRef}
+    >
+      <CardContent>
+        <Box>
+          <Typography variant="h6">{props.item.name}</Typography>
+        </Box>
+      </CardContent>
+    </Card>
+         )}
+   </Draggable>
+    
+    
   );
 };
 
