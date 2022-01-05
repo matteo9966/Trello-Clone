@@ -4,7 +4,8 @@ import React from "react";
 export const GlobalThemeProvider: React.FC = ({ children }) => {
   const theme = createTheme({
      typography:{
-         fontSize:10
+         fontSize:10,
+         fontFamily:['Roboto'].join(),
      },
      shape:{borderRadius:3},
      components:{MuiToolbar:{
@@ -12,7 +13,7 @@ export const GlobalThemeProvider: React.FC = ({ children }) => {
             padding:0,
          
         }}
-     }}
+     },MuiCard:{styleOverrides:{root:{minHeight:'none',maxHeight:'none',height:'none'}}}}
   });
 
  

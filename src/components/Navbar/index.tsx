@@ -8,6 +8,8 @@ import { MainContainer } from "./UI/MainContainer";
 import { MenuButton } from "./Menu/MenuButton";
 import { DropdownMenu } from "./Menu/DropdownMenu";
 import InviteUser from "../InviteUser/InviteUser"
+import '@fontsource/roboto/400.css';
+
 // import {useTheme} from '@mui/material/styles'
 export const Navbar: React.FC = () => {
   // const theme = useTheme();

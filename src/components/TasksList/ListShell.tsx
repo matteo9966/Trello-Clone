@@ -5,6 +5,7 @@ import { RootState } from "../../redux/store";
 import { useDispatch, useSelector } from "react-redux";
 import { newTask } from "../../redux/taskSlice";
 import { List, ListItem } from "@mui/material";
+import { v4 as uuidv4 } from "uuid";
 import Task from "./Task";
 
 const ListShell: FC<listShellType> = ({ shellName, shellId }) => {
@@ -30,6 +31,8 @@ const ListShell: FC<listShellType> = ({ shellName, shellId }) => {
               title={task.title}
               description={task.description}
               parentShell={shellId}
+              cardMenuIsOpen={task.cardMenuIsOpen}
+              id={task.id}
             />
           );
         }
@@ -41,6 +44,8 @@ const ListShell: FC<listShellType> = ({ shellName, shellId }) => {
               title: "prova",
               description: "task generato per una prova",
               parentShell: shellId,
+              cardMenuIsOpen: false,
+              id: uuidv4(),
             })
           )
         }

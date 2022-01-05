@@ -5,6 +5,7 @@ import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import SettingsIcon from "@mui/icons-material/Settings";
 import { useDispatch } from "react-redux";
 import { closeDrawer } from "../../redux/drawerSlice";
+import { v4 as uuidv4 } from "uuid";
 
 const DrawerContent = () => {
   const dispatch = useDispatch();
@@ -85,7 +86,7 @@ const DrawerContent = () => {
           workspace,
           youreBulletinBoard,
         ].map((itemList) => {
-          return <ListItem>{itemList}</ListItem>;
+          return <ListItem key={uuidv4()}>{itemList}</ListItem>;
         })}
       </List>
     </Box>
