@@ -2,7 +2,7 @@ import { Box, Card, CardContent, Typography } from "@mui/material";
 
 import React from "react";
 import { DraggableProvided,Draggable } from "react-beautiful-dnd";
-import { ColumnItem } from "../../Classes/ColumnItem";
+import { ColumnItem } from "../../../Classes/ColumnItem";
 //questo è da riscrivere, gli passo solo item e index e metto il draggable qui dentro!
 export const ColumnItemDraggable: React.FC<{
   provided?: DraggableProvided;
@@ -33,4 +33,4 @@ export const ColumnItemDraggable: React.FC<{
   );
 };
 
-// #TODO: qui va l'item di cui voglio fare il drag!
+

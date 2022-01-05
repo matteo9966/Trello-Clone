@@ -17,11 +17,11 @@ function App() {
       <div style={{ height: "45px" }}>
         <Navbar />
       </div>
-      <div style={{ flexGrow: 1, }}>
-        <div style={{ display: "flex", height: "100%" }}>
+      <div style={{ flexGrow: 1, maxHeight: 'calc(100vh - 45px)',display:'flex' }}>
           {<DefaultDrawer />}
           {<TasksList />}
-        </div>
+        {/* <div style={{ display: "flex", height: "100%" }}> */}
+        {/* </div> */}
       </div>
     </div>
   );
