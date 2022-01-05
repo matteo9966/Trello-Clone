@@ -29,16 +29,11 @@ export const MainPanel = () => {
             component="span"
             sx={{
               minHeight: "auto",
-             
               display: "flex",
-              
-            
+              alignItems: "flex-start",
               padding: "0.8rem",
-              
             }}
           >
-           
-
             {boardData.board.map((column, index) => {
               return (
                 <Column

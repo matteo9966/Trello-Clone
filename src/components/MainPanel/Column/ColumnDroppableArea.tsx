@@ -1,7 +1,7 @@
 import React from 'react'
 import {  Droppable } from "react-beautiful-dnd";
-import { Column } from '../../Classes/Column';
-import { ColumnItemDraggable } from './ColumnItemDraggable';
+import { Column } from '../../../Classes/Column';
+import { ColumnItemDraggable } from '../ColumnItem';
 export const ColumnDroppableArea:React.FC<{columnData:Column,children?:React.ReactNode}> = ({columnData,children}) => {
     return (
         <Droppable droppableId={columnData.ID}  type="ITEMS">
