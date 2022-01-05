@@ -6,60 +6,77 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import { useDispatch } from "react-redux";
 import { closeDrawer } from "../../redux/drawerSlice";
 import { v4 as uuidv4 } from "uuid";
+import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import MenuBullet from "./MenuBullet";
+import { minHeight } from "@mui/system";
 
 const DrawerContent = () => {
   const dispatch = useDispatch();
 
   const workSpaceHeader = (
-    <Fragment>
+    <div
+      style={{
+        minWidth: "200px",
+        display: "flex",
+        alignItems: "center",
+        flexWrap: "nowrap",
+      }}
+    >
       <Avatar variant="square" sx={{ margin: 0 }}>
         S
       </Avatar>{" "}
-      <Typography paragraph noWrap sx={{ margin: 0 }}>
-        spazio di lavoro di default{" "}
-        <Button size="small" onClick={() => dispatch(closeDrawer())}>
-          {"<"}
-        </Button>
-        <Typography variant="subtitle2">gratis</Typography>
+      <Typography paragraph sx={{ margin: " 0 3% 0 3%" }}>
+        {" "}
+        Spazio di lavoro gratis
       </Typography>
-    </Fragment>
+      <Button
+        size="small"
+        onClick={() => dispatch(closeDrawer())}
+        startIcon={<KeyboardArrowLeftIcon />}
+      />
+    </div>
   );
 
-  const bulletinBoard = (
-    <Fragment>
-      <Typography paragraph noWrap>
-        <FormatListBulletedIcon />
+  const workspace = (
+    <div>
+      <Typography
+        fontSize={14}
+        sx={{ padding: "0 0 10px 0", fontWeight: "bold" }}
+      >
+        Viste dello spazio di lavoro
       </Typography>
-      <Typography paragraph noWrap>
-        Bacheca
-      </Typography>
-    </Fragment>
+      <MenuBullet
+        icon={<DashboardIcon />}
+        text="Tabelle dello spazio di lavoro"
+      />
+    </div>
   );
 
-  const members = (
-    <Fragment>
-      <Typography paragraph noWrap>
-        <PersonOutlineIcon />
+  const youreBulletinBoard = (
+    <div>
+      <Typography
+        fontSize={14}
+        sx={{ padding: "0 0 10px 0", fontWeight: "bold" }}
+      >
+        le tue bacheche
       </Typography>
-      <Typography paragraph noWrap>
-        Membri
-      </Typography>
-    </Fragment>
+      <MenuBullet
+        icon={
+          <div
+            style={{
+              minWidth: "10px",
+              minHeight: "10px",
+              borderRadius: "28%",
+              backgroundColor: "grey",
+            }}
+          />
+        }
+        text="bacheca 1° "
+      />
+    </div>
   );
 
-  const settings = (
-    <Fragment>
-      <Typography paragraph noWrap>
-        <SettingsIcon />
-      </Typography>
-      <Typography paragraph noWrap>
-        Impostazioni
-      </Typography>
-    </Fragment>
-  );
-
-  const workspace = "Viste dello spazio di lavoro";
-  const youreBulletinBoard = " le tue bacheche";
   return (
     <Box
       component="div"
@@ -77,16 +94,17 @@ const DrawerContent = () => {
           <hr
             style={{
               backgroundColor: "black",
-              width: "100%",
+              padding: 0,
+              width: 290,
             }}
           />,
-          bulletinBoard,
-          members,
-          settings,
+          <MenuBullet icon={<FormatListBulletedIcon />} text="Bacheca" />,
+          <MenuBullet icon={<SettingsIcon />} text="Impostazioni" />,
+          <MenuBullet icon={<PersonOutlineIcon />} text="Membri" />,
           workspace,
           youreBulletinBoard,
         ].map((itemList) => {
-          return <ListItem key={uuidv4()}>{itemList}</ListItem>;
+          return <ListItem key={uuidv4()} sx={{}}>{itemList}</ListItem>; // aggiusta il padding di listItem
         })}
       </List>
     </Box>
