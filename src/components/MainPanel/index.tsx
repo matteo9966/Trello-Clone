@@ -4,6 +4,7 @@ import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import { Box, Card, CardContent, Typography } from "@mui/material";
 import { Column } from "./Column";
 import { useMainPanel } from "./dragLogic";
+import { NewColumnForm } from "./NewCardForm";
 export const MainPanel = () => {
   const boardData = useAppSelector((state) => state.cards);
   const [onDragEnd] = useMainPanel();
@@ -17,6 +18,7 @@ export const MainPanel = () => {
          */
 
     <DragDropContext onDragEnd={onDragEnd}>
+      <div style={{border:'2px solid red',display:'inline-flex', padding: "0.8rem",gap:'0.8rem',}}>
       <Droppable
         droppableId="droppable-main"
         direction="horizontal"
@@ -31,7 +33,9 @@ export const MainPanel = () => {
               minHeight: "auto",
               display: "flex",
               alignItems: "flex-start",
-              padding: "0.8rem",
+              
+            
+             
             }}
           >
             {boardData.board.map((column, index) => {
@@ -48,6 +52,9 @@ export const MainPanel = () => {
           </Box>
         )}
       </Droppable>
+         
+        <NewColumnForm></NewColumnForm>
+      </div>
     </DragDropContext>
   );
 };

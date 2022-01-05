@@ -4,6 +4,7 @@ import reorderArray from '../HelperFunctions/reorderArray'
 import {reorderItems as reorderItemList} from '../HelperFunctions/reorderItems'
 import {Column} from '../Classes/Column'
 import { createColumnItem } from "../HelperFunctions/createItem";
+import {createColumn} from '../HelperFunctions/createColumn';
 interface ColumnsReorder {
     sourceIndex:number;
     destinationIndex:number;
@@ -53,11 +54,19 @@ const cardsSlice = createSlice({
                column.items.push(createColumnItem()) //inserisci nuovo elemento!
            }
        },
+       addNewColumn:(state,action:PayloadAction<string>)=>{
+            const newCol = createColumn(action.payload)
+            state.board.push(newCol)
+       }
+    //    addNewColumn:(state,action:PayloadAction<{colId:string,title:string}>)=>{
+    //         const newCol = createColumn(action.payload)
+    //         state.board.push(newCol)
+    //    }
        
     }
     
 })
 
-export const {reorderColumns,reorderItems,addItemToColumn} =cardsSlice.actions
+export const {reorderColumns,reorderItems,addItemToColumn,addNewColumn} =cardsSlice.actions
 export default cardsSlice.reducer
 

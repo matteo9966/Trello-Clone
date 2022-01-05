@@ -17,13 +17,16 @@ const TasksList = () => {
       component="span"
       sx={{
         flexGrow: 1,
-        height: "100%",
-        maxHeight: "300vh",
-
+        // height: "100%",
+        justifyContent:'flex-start',
+        
         border: "2px solid magenta",
         gap: "0.5rem",
         overflow: "scroll",
-        display: "block",
+        // display: "flex",
+        // alignItems:'stretch',
+        // justifyItems:'stretch',
+        display:'block',
       }}
     >
       <MainPanel></MainPanel>
