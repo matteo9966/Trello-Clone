@@ -51,7 +51,7 @@ const TaskForm = () => {
           right: "40%",
         }}
       >
-        <Typography variant="h5">titolo card</Typography>
+        <Typography variant="h5" sx={{marginBottom:'10px'}}>titolo card</Typography>
         <Typography variant="h5">Descrizione Della card</Typography>
         {rightList}
       </Paper>

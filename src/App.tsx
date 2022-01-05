@@ -22,7 +22,7 @@ function App() {
         <div style={{ display: "flex", height: "100%" }}>
           {<DefaultDrawer />}
           {<TasksList />}
-          {<TaskForm/>}
+         
         </div>
       </div>
     </div>
