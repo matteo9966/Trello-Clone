@@ -30,6 +30,7 @@ export const Navbar: React.FC = () => {
         maxHeight: `45px`,
         justifyContent: "center",
         flexDirection: "column",
+        background:'linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%)',
         gap: 0,
       }}
     >
