@@ -5,7 +5,7 @@ import { ColumnItemDraggable } from '../ColumnItem';
 export const ColumnDroppableArea:React.FC<{columnData:Column,children?:React.ReactNode}> = ({columnData,children}) => {
     return (
         <Droppable droppableId={columnData.ID}  type="ITEMS">
-          {(provided)=>{return (<div {...provided.droppableProps} ref={provided.innerRef} style={{width:'100%',minHeight:'200px', border:'3px solid orange'}}>
+          {(provided)=>{return (<div {...provided.droppableProps} ref={provided.innerRef} style={{width:'100%',minHeight:'200px'}}>
               
               {columnData.items.map((item,index)=>{
                   return(<ColumnItemDraggable key={item.ID} index={index} item={item}/>)

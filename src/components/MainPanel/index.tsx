@@ -18,7 +18,7 @@ export const MainPanel = () => {
          */
 
     <DragDropContext onDragEnd={onDragEnd}>
-      <div style={{border:'2px solid red',display:'inline-flex', padding: "0.8rem",gap:'0.8rem',}}>
+      <div style={{display:'inline-flex', padding: "0.8rem",gap:'0.8rem',}}>
       <Droppable
         droppableId="droppable-main"
         direction="horizontal"

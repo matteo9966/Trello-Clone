@@ -7,7 +7,7 @@ import { Draggable } from "react-beautiful-dnd";
 import { ColumnDroppableArea } from "./ColumnDroppableArea";
 import Box from "@mui/material/Box";
 import { Button } from "@mui/material";
-import { onClickAddItemHandler,onClickAddItemHandler2 } from "./ColumnLogic";
+import { onClickAddItemHandler/* ,onClickAddItemHandler2 */ } from "./ColumnLogic";
 import { useAppDispatch } from "../../../hooks/redux/hooks";
 import { TextInput } from "../UI/TextInput";
 export const Column: React.FC<{ ColumnData: Col; index: number }> = ({
@@ -35,12 +35,12 @@ export const Column: React.FC<{ ColumnData: Col; index: number }> = ({
           }}
         >
           <CardContent
-            sx={{ border: "1px solid black", padding: 0,height: 'none',maxHeight:'none' }}
+            sx={{  padding: 0,height: 'none',maxHeight:'none' }}
           >
             <CardHeader
               {...provided.dragHandleProps}
               title={ColumnData.name}
-              sx={{ border: "3px solid green", padding: 0 }}
+              sx={{ padding: 0 }}
             />
             <Box
               sx={{
@@ -53,8 +53,7 @@ export const Column: React.FC<{ ColumnData: Col; index: number }> = ({
                 minHeight: "200px",
                 height: 'none',
                 maxHeight:'none',
-                // overflow:'scroll',
-                // maxHeight:400,
+            
               }}
             >
               <ColumnDroppableArea columnData={ColumnData} />
@@ -62,7 +61,7 @@ export const Column: React.FC<{ ColumnData: Col; index: number }> = ({
             </Box>
             {/* <Button variant="text" onClick={onClickAddItemHandler(ColumnData.ID,dispatch)}>New Item</Button> */}
             {/* <Button variant="text" onClick={onClickAddItemHandler2(ColumnData.ID)}>New Item</Button> */}
-            <TextInput  handler={onClickAddItemHandler2(ColumnData.ID)} ></TextInput>
+            <TextInput  handler={onClickAddItemHandler(ColumnData.ID)} ></TextInput>
 
           </CardContent>
         </Card>

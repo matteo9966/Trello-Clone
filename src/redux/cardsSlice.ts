@@ -16,6 +16,11 @@ interface ItemsReorder {
   destinationestinationColumnID: string;
 }
 
+interface addItemToColumnPayload {
+  colID:string;
+  itemTitle:string;
+}
+
 const cardsSlice = createSlice({
   name: "cards",
   initialState: { board: board }, //#TODO: parti da qui per aggiornare i dati!
@@ -50,14 +55,21 @@ const cardsSlice = createSlice({
       );
       return { ...state, board: newboard };
     },
-    addItemToColumn: (state, action: PayloadAction<string>) => {
-      const column = state.board.find((col) => col.ID === action.payload);
+    addItemToColumn: (state, action: PayloadAction<addItemToColumnPayload>) => {  //il payload deve contenere : 1 id della colonna, titolo del item
+      const {colID} = action.payload;
+      const {itemTitle} = action.payload;
+
+      const column = state.board.find((col) => col.ID === colID);
       if (column) {
-        column.items.push(createColumnItem()); //inserisci nuovo elemento!
+        column.items.push(createColumnItem(itemTitle)); //inserisci nuovo elemento!
       }
     },
+
+
+
+
     addNewColumn: (state, action: PayloadAction<string>) => {
-      const newCol = createColumn(action.payload);
+      const newCol = createColumn(action.payload);  //il payload è il colid da aggiungere
       state.board.push(newCol);
     },
     //    addNewColumn:(state,action:PayloadAction<{colId:string,title:string}>)=>{
