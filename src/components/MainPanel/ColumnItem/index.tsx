@@ -19,7 +19,7 @@ export const ColumnItemDraggable: React.FC<{
       {...provided.draggableProps}
       {...provided.dragHandleProps}
       ref={provided.innerRef}
-      sx={{marginY:'0.2rem'}}
+      sx={{marginY:'0.2rem',background:'linear-gradient(to top, #dfe9f3 0%, white 100%)'}}
     >
       <CardContent>
         <Box>

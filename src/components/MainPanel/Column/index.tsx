@@ -29,6 +29,7 @@ export const Column: React.FC<{ ColumnData: Col; index: number }> = ({
             marginLeft: "0.5rem",
             display: "inline",
             float: "left",
+            background:'linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%)',
           }}
         >
           <CardContent sx={{ padding: 0, height: "none", maxHeight: "none" }}>
@@ -52,6 +53,7 @@ export const Column: React.FC<{ ColumnData: Col; index: number }> = ({
                 height: "none",
                 maxHeight: "none",
                 padding:'0.2rem',
+                
               }}
             >
               <ColumnDroppableArea columnData={ColumnData} />
