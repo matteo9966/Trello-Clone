@@ -3,6 +3,7 @@ import DrawerContent from "./DrawerContent";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { openDrawer } from "../../redux/drawerSlice";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
 const DefaultDrawer = () => {
   const drawerState = useSelector((state: RootState) => state.drawer);
@@ -36,9 +37,8 @@ const DefaultDrawer = () => {
         <Button
           onClick={() => dispatch(openDrawer())}
           style={{ minWidth: "7px", height: "2%" }}
-        >
-          {">"}
-        </Button>
+          startIcon={<KeyboardArrowRightIcon />}
+        />
       ) : (
         ""
       )}
