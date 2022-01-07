@@ -6,10 +6,10 @@ import CardHeader from "@mui/material/CardHeader";
 import { Draggable } from "react-beautiful-dnd";
 import { ColumnDroppableArea } from "./ColumnDroppableArea";
 import Box from "@mui/material/Box";
-import { Button } from "@mui/material";
-import { onClickAddItemHandler/* ,onClickAddItemHandler2 */ } from "./ColumnLogic";
+import { onClickAddItemHandler } from "./ColumnLogic";
 import { useAppDispatch } from "../../../hooks/redux/hooks";
 import { TextInput } from "../UI/TextInput";
+import { ColumnTitle } from "./ColumnTitle";
 export const Column: React.FC<{ ColumnData: Col; index: number }> = ({
   ColumnData,
   index,
@@ -18,51 +18,47 @@ export const Column: React.FC<{ ColumnData: Col; index: number }> = ({
   return (
     <Draggable draggableId={ColumnData.ID.toString()} index={index}>
       {(provided) => (
-        
         <Card
           ref={provided.innerRef}
           {...provided.draggableProps}
           elevation={3}
           sx={{
-
             minWidth: "280px",
             maxWidth: "0.2vw",
-            minHeight:'0',
+            minHeight: "0",
             marginLeft: "0.5rem",
-            display:'inline',
-            float:'left',
-
+            display: "inline",
+            float: "left",
           }}
         >
-          <CardContent
-            sx={{  padding: 0,height: 'none',maxHeight:'none' }}
-          >
+          <CardContent sx={{ padding: 0, height: "none", maxHeight: "none" }}>
             <CardHeader
+              
               {...provided.dragHandleProps}
-              title={ColumnData.name}
-              sx={{ padding: 0 }}
+              // title={ColumnData.name}
+              sx={{ padding:'0.4rem' }}
+              subheader={<ColumnTitle columnID={ColumnData.ID} value={ColumnData.name}></ColumnTitle>}
             />
+             {/* <ColumnTitle columnID={ColumnData.ID}></ColumnTitle> */}
             <Box
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                position:'relative',
-                top:0,
+                position: "relative",
+                top: 0,
                 flexGrow: 1,
                 width: "100%",
                 minHeight: "200px",
-                height: 'none',
-                maxHeight:'none',
-            
+                height: "none",
+                maxHeight: "none",
+                padding:'0.2rem',
               }}
             >
               <ColumnDroppableArea columnData={ColumnData} />
-
             </Box>
-            {/* <Button variant="text" onClick={onClickAddItemHandler(ColumnData.ID,dispatch)}>New Item</Button> */}
-            {/* <Button variant="text" onClick={onClickAddItemHandler2(ColumnData.ID)}>New Item</Button> */}
-            <TextInput  handler={onClickAddItemHandler(ColumnData.ID)} ></TextInput>
-
+            <TextInput
+              handler={onClickAddItemHandler(ColumnData.ID)}
+            ></TextInput>
           </CardContent>
         </Card>
       )}

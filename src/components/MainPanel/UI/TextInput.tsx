@@ -14,7 +14,7 @@ export const TextInput:React.FC<{handler:handlerType}> =(props)=>{
     return  (  <Box sx={{display:'flex'}}>
     <InputBase
          required
-         id="column-name"
+         id="column-name" //#FIXME: questo è da aggiustare! column-name deve essere univoco
          inputRef={titleInputRef}
          sx={{paddingLeft:'0.2rem',flexGrow:1}}
          placeholder="Column title"

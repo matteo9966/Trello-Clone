@@ -2,9 +2,11 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { board } from "../dummyData/Data";
 import reorderArray from "../HelperFunctions/reorderArray";
 import { reorderItems as reorderItemList } from "../HelperFunctions/reorderItems";
-import { Column } from "../Classes/Column";
+import {findColumnIndex} from '../HelperFunctions/findColumnIndex';
+// import { Column } from "../Classes/Column";
 import { createColumnItem } from "../HelperFunctions/createItem";
 import { createColumn } from "../HelperFunctions/createColumn";
+
 interface ColumnsReorder {
   sourceIndex: number;
   destinationIndex: number;
@@ -20,10 +22,14 @@ interface addItemToColumnPayload {
   colID:string;
   itemTitle:string;
 }
+interface renameColumnPayload{
+  colID:string;
+  title:string;
+}
 
 const cardsSlice = createSlice({
   name: "cards",
-  initialState: { board: board }, //#TODO: parti da qui per aggiornare i dati!
+  initialState: { board: board }, 
   reducers: {
     reorderColumns: (state, action: PayloadAction<ColumnsReorder>) => {
       const sourceIndex = action.payload.sourceIndex;
@@ -72,13 +78,15 @@ const cardsSlice = createSlice({
       const newCol = createColumn(action.payload);  //il payload è il colid da aggiungere
       state.board.push(newCol);
     },
-    //    addNewColumn:(state,action:PayloadAction<{colId:string,title:string}>)=>{
-    //         const newCol = createColumn(action.payload)
-    //         state.board.push(newCol)
-    //    }
+    renameColumn:(state,action:PayloadAction<renameColumnPayload>)=>{
+        const columnIndex = findColumnIndex(state.board,action.payload.colID)
+        if(!columnIndex) return
+        state.board[columnIndex].name=action.payload.title;
+    }
+ 
   },
 });
 
-export const { reorderColumns, reorderItems, addItemToColumn, addNewColumn } =
+export const { reorderColumns, reorderItems, addItemToColumn, addNewColumn,renameColumn } =
   cardsSlice.actions;
 export default cardsSlice.reducer;
